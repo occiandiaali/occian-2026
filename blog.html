@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/jpeg" href="/assets/images/profile.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Resume | Occian F Diaali</title>
+    <title>Blog | Occian F Diaali</title>
     <!-- SEO -->
     <meta
       name="description"
@@ -90,41 +90,7 @@
     <main class="page-main">
       <div class="page-container" style="max-width: 800px; text-align: center">
         <h1 class="page-title" style="margin-bottom: 1.5rem">My Writings.</h1>
-        <p class="section-text" style="max-width: 600px; margin: 0 auto 2.5rem">
-          Take a look at my qualifications and experience. You can also download
-          a copy for your records.
-        </p>
-        <div class="resume-actions" style="margin-bottom: 3rem">
-          <!-- TODO: Replace the href with the path to your actual resume PDF -->
-          <a href="assets/documents/resume.pdf" class="btn-primary" download>
-            Download PDF
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-        <div class="resume-container">
-          <!-- TODO: Replace the src with the path to your actual resume PDF -->
-          <iframe
-            src="assets/documents/resume.pdf"
-            class="resume-frame"
-            title="Occian F Diaali Resume"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <p class="updated-note">Last updated: January 2026</p>
+        <div id="posts-grid" class="posts-grid"></div>
       </div>
     </main>
     <footer>
@@ -207,5 +173,62 @@
       </div>
     </footer>
     <script src="assets/js/scripts.js"></script>
+    <script>
+      const postFiles = [
+        "posts/introduction.md",
+        "posts/how-to-succeed.md",
+        "posts/i-made-money.md",
+      ];
+      const posts = [];
+
+      Promise.all(
+        postFiles.map((file) =>
+          fetch(file)
+            .then((res) => res.text())
+            .then((md) => {
+              // Extract title
+              const titleMatch = md.match(/^# (.*)/m);
+              const title = titleMatch ? titleMatch[1] : "Untitled";
+
+              // Extract published date
+              const dateMatch = md.match(/\*Published:\s*(.*)\*/);
+              const dateStr = dateMatch ? dateMatch[1] : "";
+              const date = dateStr ? new Date(dateStr) : new Date();
+
+              // Extract first paragraph as excerpt
+              const paragraphs = md.split(/\n\n+/);
+              let excerpt = "";
+              for (let p of paragraphs) {
+                if (
+                  !p.startsWith("#") &&
+                  !p.startsWith("*") &&
+                  p.trim().length > 0
+                ) {
+                  excerpt = p.replace(/\n/g, " ");
+                  break;
+                }
+              }
+
+              posts.push({ file, title, date, excerpt });
+            }),
+        ),
+      ).then(() => {
+        // Sort newest first
+        posts.sort((a, b) => b.date - a.date);
+
+        const grid = document.getElementById("posts-grid");
+        posts.forEach((p) => {
+          const card = document.createElement("div");
+          card.className = "post-card";
+          card.innerHTML = `
+          <h2>${p.title}</h2>
+          <p><em>${p.date.toDateString()}</em></p>
+          <p>${p.excerpt}</p>
+          <a href="blog-post.html?post=${p.file.split("/").pop()}">Read more..</a>
+        `;
+          grid.appendChild(card);
+        });
+      });
+    </script>
   </body>
 </html>

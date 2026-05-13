@@ -110,3 +110,40 @@ if (contactForm) {
     }, 800);
   });
 }
+
+// Blog stuff
+function parseMarkdown(md) {
+  return (
+    md
+      // Headings
+      .replace(/^# (.*$)/gim, "<h1>$1</h1>")
+      .replace(/^## (.*$)/gim, "<h2>$1</h2>")
+      .replace(/^### (.*$)/gim, "<h3>$1</h3>")
+      // Bold & Italic
+      .replace(/\*\*(.*?)\*\*/gim, "<b>$1</b>")
+      .replace(/\*(.*?)\*/gim, "<i>$1</i>")
+      // Images ![alt](src)
+      .replace(
+        /!\[(.*?)\]\((.*?)\)/gim,
+        '<img src="$2" alt="$1" style="max-width:100%">',
+      )
+      // Links [text](href)
+      .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2">$1</a>')
+      // Lists - item
+      .replace(/^- (.*)$/gim, "<li>$1</li>")
+      // Wrap consecutive <li> in <ul>
+      .replace(/(<li>.*<\/li>)/gim, "<ul>$1</ul>")
+      // Line breaks
+      .replace(/\n/g, "<br>")
+  );
+}
+
+// Load blog post
+if (window.location.search.includes("post=")) {
+  const postFile = new URLSearchParams(window.location.search).get("post");
+  fetch("posts/" + postFile)
+    .then((res) => res.text())
+    .then((md) => {
+      document.getElementById("content").innerHTML = parseMarkdown(md);
+    });
+}

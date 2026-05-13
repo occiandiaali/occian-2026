@@ -597,7 +597,7 @@ footer {
 .carousel-btn:hover {
   background: rgba(255, 255, 255, 0.2);
 }
-/* Resume Layout */
+/* CV Layout */
 .resume-container {
   width: 100%;
   aspect-ratio: 8.5/11;
@@ -619,6 +619,17 @@ footer {
   color: var(--text-muted);
 }
 /* Contact Layout */
+#content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+  background-color: rgb(199, 195, 195);
+}
 .contact-page .page-title {
   margin-bottom: 0;
 }
@@ -767,6 +778,15 @@ footer {
   }
 }
 @media (max-width: 768px) {
+  /* Blog */
+  #content {
+    width: 280px;
+  }
+  #backLink {
+    z-index: 4;
+    margin: 8px;
+  }
+  /*========*/
   .navbar .nav-container {
     padding: 1rem 5%;
   }
