@@ -45,7 +45,7 @@
           <a href="index.html" class="active">Home</a>
           <a href="about.html">About</a>
           <a href="projects.html">Projects</a>
-          <a href="cv.html">CV</a>
+          <!-- <a href="cv.html">CV</a> -->
         </div>
         <div class="nav-controls">
           <button
@@ -191,8 +191,12 @@
               const title = titleMatch ? titleMatch[1] : "Untitled";
 
               // Extract published date
-              const dateMatch = md.match(/\*Published:\s*(.*)\*/);
-              const dateStr = dateMatch ? dateMatch[1] : "";
+              // const dateMatch = md.match(/\*Published:\s*(.*)\*/);
+              // const dateStr = dateMatch ? dateMatch[1] : "";
+              // const date = dateStr ? new Date(dateStr) : new Date();
+              // Extract published date
+              const dateMatch = md.match(/^Published:\s*(.*)$/m);
+              const dateStr = dateMatch ? dateMatch[1].trim() : "";
               const date = dateStr ? new Date(dateStr) : new Date();
 
               // Extract first paragraph as excerpt

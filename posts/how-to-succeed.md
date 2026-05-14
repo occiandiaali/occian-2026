@@ -1,6 +1,6 @@
 # How to succeed
 
-_Published: May 13, 2026_
+Published: May 13, 2026
 
 ---
 
