@@ -1,0 +1,28 @@
+# How to start learning
+
+Published May 15, 2026
+
+"Like those immortal words: Start from the start"
+
+## But, how to start?
+
+Well first, you need to decide what type of developer you want to be. Software development is such a vast and dynamic
+endeavour, with always new things to learn, that you will have to choose what to focus on.
+
+There are different areas of software development such as for web, video games, automobiles, mobile, etc..
+Here's a good article about the [different types of software development](https://kinsta.com/blog/types-of-developers/) areas you should know.
+
+It may likely seem to be overwhelming that you might ask: Is there no simple route?
+
+## The (not so) yellow brick road
+
+I would say that the easiest path of entry would be web development - specifically, [Frontend development](https://cloudinary.com/guides/front-end-development/front-end-development-the-complete-guide).
+This is the area that focuses on building what the end-user interacts with, such as the buttons on a web page or the lists of Instagram photos you waste
+endless hours scrolling through. That article also gives you a comparison between frontend and other-end focal points.
+
+## Most important take-away
+
+My advice is write down the reason why you want to get into it in the first place, then read that writing morning and night
+EVERY DAY.
+
+<a href="../blog.html" class="back-link">Back to Posts</a>

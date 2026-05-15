@@ -1,8 +1,6 @@
 # My Introduction Post
 
-Published: May 13, 2026
-
----
+Published May 13, 2026
 
 ## Introduction
 
@@ -12,14 +10,14 @@ Welcome to my blog! This is my very first post, and I’m excited to share my th
 
 I wanted a place to:
 
-- **Showcase my projects** in a clean portfolio.
-- **Write blog posts** using Markdown.
-- **Share personal info** and ways to get in touch.
+**Showcase my projects** in a clean portfolio.
+**Write blog posts** using Markdown.
+**Share personal info** and ways to get in touch.
 
 ## A Sample Project
 
 One of my favorite projects is a small web app that converts text into Morse code.  
-You can check out the demo on the [Projects page](../projects.html).
+You can check out the demo on the [Projects page](../projects.html)
 
 ## Lessons Learned
 
@@ -31,8 +29,6 @@ You can check out the demo on the [Projects page](../projects.html).
 
 Thanks for stopping by! I’ll be posting more soon.  
 Stay tuned for updates and new projects.
-
----
 
 <!--_Back to [Blog List](../index.html)_-->
 
