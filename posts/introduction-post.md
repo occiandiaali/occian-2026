@@ -1,6 +1,6 @@
 # My Introduction Post
 
-Published May 13, 2026
+Published: May 13, 2026
 
 ## Introduction
 

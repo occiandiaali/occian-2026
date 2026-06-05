@@ -1,6 +1,6 @@
-# How to start learning
+# Step 1 is the hardest
 
-Published May 15, 2026
+Published: May 15, 2026
 
 "Like those immortal words: Start from the start"
 

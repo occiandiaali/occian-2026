@@ -14,6 +14,7 @@
   --btn-sec-text: #1a1a1a;
   --btn-sec-border: #e5e5e5;
   --btn-sec-hover: #f5f5f5;
+  --link-text: #1a1a1a;
 }
 [data-theme="dark"] {
   /* Dark Theme */
@@ -31,7 +32,9 @@
   --btn-sec-text: #f2f2f2;
   --btn-sec-border: #333333;
   --btn-sec-hover: #1a1a1a;
+  --link-text: #fdf7f7;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -629,8 +632,11 @@ footer {
   min-width: 300px;
   height: auto;
   margin: 0 auto;
-  background-color: rgb(247, 236, 236);
+  /* background-color: rgb(247, 236, 236); */
+  background-color: black;
+  color: white;
 }
+
 .contact-page .page-title {
   margin-bottom: 0;
 }
@@ -750,6 +756,7 @@ footer {
 .form-status.error {
   color: #ef4444;
 }
+
 /* Animations */
 @keyframes fadeUp {
   to {

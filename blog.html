@@ -90,8 +90,8 @@
     <main class="page-main">
       <div class="page-container" style="max-width: 800px; text-align: center">
         <h1 class="page-title" style="margin-bottom: 1.5rem">My Writings.</h1>
-        <!-- <div id="posts-grid" class="posts-grid"></div> -->
-        <h2>COMING SOON</h2>
+        <div id="posts-grid" class="posts-grid"></div>
+        <!-- <h2>COMING SOON</h2> -->
       </div>
     </main>
     <footer>
@@ -176,10 +176,10 @@
     <script src="assets/js/scripts.js"></script>
     <script>
       const postFiles = [
-        "posts/introduction.md",
+        "posts/introduction-post.md",
         "posts/how-to-succeed.md",
         "posts/i-made-money.md",
-        "posts/step-1-is-the-hardest.md",
+        "posts/step1-is-the-hardest.md",
       ];
       const posts = [];
 
@@ -199,7 +199,7 @@
               // Extract published date
               const dateMatch = md.match(/^Published:\s*(.*)$/m);
               const dateStr = dateMatch ? dateMatch[1].trim() : "";
-              const date = dateStr ? new Date(dateStr) : new Date();
+              const date = new Date(dateStr); //dateStr ? new Date(dateStr) : new Date();
 
               // Extract first paragraph as excerpt
               const paragraphs = md.split(/\n\n+/);
