@@ -638,7 +638,7 @@ footer {
 
 [data-theme="dark"] .article {
   background: rgba(13, 13, 13, 1);
-  color: var(--text-main);
+  color: white;
 }
 [data-theme="dark"] #backLink {
   color: white;
@@ -886,11 +886,5 @@ footer {
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .page-title {
-    font-size: medium;
   }
 }
