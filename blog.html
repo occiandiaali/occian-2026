@@ -89,15 +89,30 @@
     </nav>
     <main class="page-main">
       <div class="page-container" style="max-width: 800px; text-align: center">
-        <h1 class="page-title" style="margin-bottom: 1.5rem">My Writings.</h1>
-        <!-- <div id="posts-grid" class="posts-grid"></div> -->
-        <iframe
+        <div>
+          <input
+            type="text"
+            id="search"
+            placeholder="Search posts..."
+            style="padding: 6px; margin: 2px"
+          />
+          <select id="tag-filter" style="padding: 4px; margin: 2px">
+            <option value="">All Tags</option>
+          </select>
+        </div>
+        <h1 class="page-title" style="margin-bottom: 1rem">My Writings.</h1>
+        <div id="posts-grid" class="posts-grid"></div>
+        <!-- <iframe
           src="https://countdowntoevent.onrender.com/e/coming-soon--2002"
           width="100%"
           height="300"
           style="border: none; border-radius: 8px"
           allow="payment"
-        ></iframe>
+        ></iframe> -->
+        <!-- <iframe
+          src="blog-list.html"
+          style="width: 100%; height: 100vh; border: none"
+        ></iframe> -->
       </div>
     </main>
     <footer>
@@ -180,7 +195,7 @@
       </div>
     </footer>
     <script src="assets/js/scripts.js"></script>
-    <script>
+    <!-- <script>
       const postFiles = [
         "posts/introduction-post.md",
         "posts/how-to-succeed.md",
@@ -228,7 +243,7 @@
         // Sort newest first
         posts.sort((a, b) => b.date - a.date);
 
-        const grid = document.getElementById("posts-grid");
+        /*   const grid = document.getElementById("posts-grid");
         posts.forEach((p) => {
           const card = document.createElement("div");
           card.className = "post-card";
@@ -240,7 +255,83 @@
         `;
           grid.appendChild(card);
         });
+        */
       });
+    </script> -->
+    <script>
+      // const postFiles = [
+      //   "posts/introduction-post.md",
+      //   "posts/how-to-succeed.md",
+      //   "posts/i-made-money.md",
+      //   "posts/step1-is-the-hardest.md",
+      // ];
+      const grid = document.getElementById("posts-grid");
+      const searchInput = document.getElementById("search");
+      const tagFilter = document.getElementById("tag-filter");
+
+      let posts = [];
+      fetch("posts/posts.json")
+        .then((res) => res.json())
+        .then((data) => {
+          posts = data;
+
+          //  console.log(">>>>>", JSON.stringify(posts));
+
+          // Auto-generate tags
+          const allTags = [...new Set(posts.flatMap((p) => p.tags))];
+          allTags.forEach((tag) => {
+            const opt = document.createElement("option");
+            opt.value = tag;
+            opt.textContent = tag;
+            tagFilter.appendChild(opt);
+          });
+          renderList();
+        });
+      // const posts = [
+      //   "posts/my-first-post.md",
+      //   "posts/all-ai-go-to-heaven.md",
+      //   "posts/how-to-succeed.md",
+      // ];
+      // // Auto-generate tags
+      // const allTags = [...new Set(posts.flatMap((p) => p.tags))];
+      // allTags.forEach((tag) => {
+      //   const opt = document.createElement("option");
+      //   opt.value = tag;
+      //   opt.textContent = tag;
+      //   tagFilter.appendChild(opt);
+      // });
+      // renderList();
+
+      function renderList() {
+        grid.innerHTML = "";
+        const keyword = searchInput.value.toLowerCase();
+        const tag = tagFilter.value;
+
+        const filtered = posts.filter((p) => {
+          const matchesKeyword = p.title.toLowerCase().includes(keyword);
+          const matchesTag = !tag || p.tags.includes(tag);
+          return matchesKeyword && matchesTag;
+        });
+
+        if (filtered.length === 0) {
+          grid.innerHTML = "<p>No posts found.</p>";
+        } else {
+          filtered.forEach((p) => {
+            const link = document.createElement("a");
+            link.href = `blog-post.html?file=${p.file}`;
+            // link.textContent = `${p.title} (${p.date})`;
+
+            link.textContent = `${p.title}`;
+            link.style.color = "tomato";
+            link.style.fontWeight = "600";
+            grid.appendChild(link);
+            grid.appendChild(document.createElement("br"));
+          });
+        }
+      }
+
+      searchInput.addEventListener("input", renderList);
+      tagFilter.addEventListener("change", renderList);
     </script>
   </body>
 </html>

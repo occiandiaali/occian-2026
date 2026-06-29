@@ -1,10 +1,12 @@
-# My Introduction Post
-
-Published: May 13, 2026
+---
+title: "All AI go to Heaven"
+date: 2026-06-14
+tags: [AI, satire, humour]
+---
 
 ## Introduction
 
-Welcome to my blog! This is my very first post, and I’m excited to share my thoughts and projects here. The goal is to keep things simple, lightweight, and easy to maintain.
+Welcome to my blog! Artificial Intelligence is heaven-sent, and I’m excited to share my thoughts and projects here. The goal is to keep things simple, lightweight, and easy to maintain.
 
 ## Why I Built This Site
 

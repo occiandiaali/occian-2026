@@ -138,12 +138,12 @@ function parseMarkdown(md) {
   );
 }
 
-// Load blog post
-if (window.location.search.includes("post=")) {
-  const postFile = new URLSearchParams(window.location.search).get("post");
-  fetch("posts/" + postFile)
-    .then((res) => res.text())
-    .then((md) => {
-      document.getElementById("content").innerHTML = parseMarkdown(md);
-    });
-}
+// // Load blog post
+// if (window.location.search.includes("post=")) {
+//   const postFile = new URLSearchParams(window.location.search).get("post");
+//   fetch("posts/" + postFile)
+//     .then((res) => res.text())
+//     .then((md) => {
+//       document.getElementById("content").innerHTML = parseMarkdown(md);
+//     });
+// }

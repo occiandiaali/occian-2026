@@ -1,0 +1,26 @@
+[
+  {
+    "file": "posts/my-first-post.md",
+    "title": "My First Blog Post",
+    "date": "2026-06-27",
+    "tags": ["intro", "personal", "javascript"]
+  },
+  {
+    "file": "posts/all-ai-go-to-heaven.md",
+    "title": "All AI go to Heaven",
+    "date": "2026-06-17",
+    "tags": ["AI", "satire", "humour"]
+  },
+  {
+    "file": "posts/how-to-succeed.md",
+    "title": "How to succeed",
+    "date": "2026-06-05",
+    "tags": ["showcase", "personal", "mentorship"]
+  },
+  {
+    "file": "posts/we-need-more-pwas.md",
+    "title": "How to succeed",
+    "date": "2026-06-29",
+    "tags": ["apps", "developers", "javascript"]
+  }
+]

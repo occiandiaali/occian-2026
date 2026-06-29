@@ -1,8 +1,10 @@
-# How to succeed
-
-Published: May 13, 2026
-
 ---
+title: "How to succeed"
+date: 2026-06-05
+tags: [showcase, personal, mentorship]
+---
+
+# How to succeed
 
 ## Introduction
 
@@ -15,11 +17,6 @@ I wanted a place to:
 - **Showcase my projects** in a clean portfolio.
 - **Write blog posts** using Markdown.
 - **Share personal info** and ways to get in touch.
-
-## A Sample Project
-
-One of my favorite projects is a small web app that converts text into Morse code.  
-You can check out the demo on the [Projects page](../projects.html).
 
 ## Lessons Learned
 

@@ -1,40 +1,10 @@
 <!doctype html>
-<html>
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/jpeg" href="/assets/images/profile.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Blog Post</title>
-    <!-- SEO -->
-    <meta
-      name="description"
-      content="View and download Occian F Diaali's resume. Full-stack developer and UX designer with a Master's in HCI and AWS Developer certification."
-    />
-    <meta name="author" content="Occian F Diaali" />
-    <meta name="robots" content="index, follow" />
-    <link
-      rel="canonical"
-      href="https://occiandiaali.github.io/portfolio/about.html"
-    />
-    <!-- Open Graph -->
-    <meta property="og:title" content="Resume | Occian F Diaali" />
-    <meta
-      property="og:description"
-      content="Full-stack developer and UX designer with a Master's in HCI and AWS Developer certification."
-    />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://occiandiaali.github.io/portfolio/about.html"
-    />
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Stylesheet -->
+    <title>Blog | Occian F Diaali</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
@@ -45,7 +15,6 @@
           <a href="index.html" class="active">Home</a>
           <a href="about.html">About</a>
           <a href="projects.html">Projects</a>
-          <!-- <a href="cv.html">CV</a> -->
         </div>
         <div class="nav-controls">
           <button
@@ -87,13 +56,25 @@
         </div>
       </div>
     </nav>
-
     <a href="blog.html" id="backLink">← Back</a>
-    <article
-      id="content"
-      style="background-color: black; color: white"
-    ></article>
+    <div id="content" class="article"></div>
+    <script src="assets/js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const file = urlParams.get("file");
 
-    <script src="/assets/js/scripts.js"></script>
+      if (file) {
+        fetch(file)
+          .then((res) => res.text())
+          .then((md) => {
+            document.getElementById("content").innerHTML = marked.parse(md);
+            document.getElementById("content").style.color = "black";
+          });
+      } else {
+        document.getElementById("content").innerHTML =
+          "<p>No post selected.</p>";
+      }
+    </script>
   </body>
 </html>

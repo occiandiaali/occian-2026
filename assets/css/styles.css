@@ -633,10 +633,16 @@ footer {
   height: auto;
   margin: 0 auto;
   /* background-color: rgb(247, 236, 236); */
-  background-color: black;
-  color: white;
+  background-color: var(--bg-color);
 }
 
+[data-theme="dark"] .article {
+  background: rgba(13, 13, 13, 1);
+  color: var(--text-main);
+}
+[data-theme="dark"] #backLink {
+  color: white;
+}
 .contact-page .page-title {
   margin-bottom: 0;
 }
@@ -880,5 +886,11 @@ footer {
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: medium;
   }
 }

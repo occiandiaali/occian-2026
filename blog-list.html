@@ -1,0 +1,76 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/jpeg" href="/assets/images/profile.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog | Occian F Diaali</title>
+  </head>
+  <body> -->
+<div>
+  <input
+    type="text"
+    id="search"
+    placeholder="Search posts..."
+    style="padding: 6px; margin: 8px"
+  />
+  <select id="tag-filter" style="padding: 6px; margin: 8px">
+    <option value="">All Tags</option>
+  </select>
+</div>
+
+<div id="blog-list" class="blog-list"></div>
+<script src="assets/js/scripts.js"></script>
+<script>
+  const listDiv = document.getElementById("blog-list");
+  const searchInput = document.getElementById("search");
+  const tagFilter = document.getElementById("tag-filter");
+  let posts = [];
+
+  //fetch("../posts/posts.json")
+  fetch("posts/posts.json")
+    .then((res) => res.json())
+    .then((data) => {
+      posts = data;
+
+      // Auto-generate tags
+      const allTags = [...new Set(posts.flatMap((p) => p.tags))];
+      allTags.forEach((tag) => {
+        const opt = document.createElement("option");
+        opt.value = tag;
+        opt.textContent = tag;
+        tagFilter.appendChild(opt);
+      });
+
+      renderList();
+    });
+
+  function renderList() {
+    listDiv.innerHTML = "";
+    const keyword = searchInput.value.toLowerCase();
+    const tag = tagFilter.value;
+
+    const filtered = posts.filter((p) => {
+      const matchesKeyword = p.title.toLowerCase().includes(keyword);
+      const matchesTag = !tag || p.tags.includes(tag);
+      return matchesKeyword && matchesTag;
+    });
+
+    if (filtered.length === 0) {
+      listDiv.innerHTML = "<p>No posts found.</p>";
+    } else {
+      filtered.forEach((p) => {
+        const link = document.createElement("a");
+        link.href = `blog-post.html?file=${p.file}`;
+        link.textContent = `${p.title} (${p.date})`;
+        listDiv.appendChild(link);
+        listDiv.appendChild(document.createElement("br"));
+      });
+    }
+  }
+
+  searchInput.addEventListener("input", renderList);
+  tagFilter.addEventListener("change", renderList);
+</script>
+<!-- </body>
+</html> -->
