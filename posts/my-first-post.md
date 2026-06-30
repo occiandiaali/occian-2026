@@ -16,7 +16,7 @@ It supports headings, lists, quotes, and code.
 
 ### Image Example
 
-![Sample Image](https://via.placeholder.com/600x200 "Placeholder Banner")
+![Sample Image](https://placehold.co/600x400 "Placeholder Banner")
 
 ### Quote Example
 

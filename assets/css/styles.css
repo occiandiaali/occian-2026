@@ -632,17 +632,35 @@ footer {
   min-width: 300px;
   height: auto;
   margin: 0 auto;
-  /* background-color: rgb(247, 236, 236); */
-  background-color: var(--bg-color);
+  background-color: rgb(247, 236, 236);
+  /* background-color: var(--bg-color); */
 }
 
-[data-theme="dark"] .article {
-  background: rgba(13, 13, 13, 1);
+/* [data-theme="dark"] #content {
   color: white;
-}
+} */
 [data-theme="dark"] #backLink {
   color: white;
 }
+#post-content {
+  padding: 8px;
+}
+
+.tags {
+  margin-top: 0.5em;
+}
+.tag {
+  display: inline-block;
+  background: #eee;
+  color: #333;
+  /* padding: 0.2em 0.6em;
+  margin-right: 0.4em; */
+  padding: 0.2em 0.6em;
+  margin: 0.2em;
+  border-radius: 8px;
+  font-size: 0.8em;
+}
+
 .contact-page .page-title {
   margin-bottom: 0;
 }

@@ -57,7 +57,10 @@
       </div>
     </nav>
     <a href="blog.html" id="backLink">← Back</a>
-    <div id="content" class="article"></div>
+    <!-- <div id="content" class="article"></div> -->
+    <div id="post-meta"></div>
+    <div id="post-content"></div>
+
     <script src="assets/js/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
@@ -68,11 +71,64 @@
         fetch(file)
           .then((res) => res.text())
           .then((md) => {
-            document.getElementById("content").innerHTML = marked.parse(md);
-            document.getElementById("content").style.color = "black";
+            // console.log(`<<<<<<< md content >>>>> : ${marked.parse(md)}`);
+
+            let rawArticle = marked.parse(md);
+
+            // Step 1: Decode HTML entities
+            const decodeEntities = (str) => {
+              const txt = document.createElement("textarea");
+              txt.innerHTML = str;
+              return txt.value;
+            };
+            rawArticle = decodeEntities(rawArticle);
+
+            // Step 2: Extract metadata block
+            const metaMatch = rawArticle.match(/<h2>([\s\S]*?)<\/h2>/);
+            const metaBlock = metaMatch ? metaMatch[1] : "";
+
+            // Step 3: Parse metadata lines
+            const metaLines = metaBlock.split("\n");
+            const meta = {};
+            metaLines.forEach((line) => {
+              const [key, value] = line.split(":");
+              if (key && value) {
+                meta[key.trim()] = value.trim().replace(/^"|"$/g, "");
+              }
+            });
+
+            // Step 4: Render metadata
+            const metaContainer = document.getElementById("post-meta");
+            const dateEl = document.createElement("p");
+            dateEl.textContent = `📅 ${meta.date}`;
+
+            const tagsEl = document.createElement("div");
+            tagsEl.className = "tags";
+            meta.tags
+              .replace(/[\[\]]/g, "") // remove brackets
+              .split(",")
+              .map((tag) => tag.trim())
+              .forEach((tag) => {
+                const span = document.createElement("span");
+                span.className = "tag";
+                span.textContent = tag;
+                tagsEl.appendChild(span);
+              });
+
+            metaContainer.appendChild(dateEl);
+            metaContainer.appendChild(tagsEl);
+
+            // Step 5: Render article body (without metadata block)
+            const content = rawArticle.replace(metaMatch[0], "");
+            document.getElementById("post-content").innerHTML = content;
+
+            // document.getElementById("content").innerHTML = marked.parse(md);
+            // document.getElementById("content").style.color = "black";
           });
       } else {
-        document.getElementById("content").innerHTML =
+        // document.getElementById("content").innerHTML =
+        //   "<p>No post selected.</p>";
+        document.getElementById("post-content").innerHTML =
           "<p>No post selected.</p>";
       }
     </script>
