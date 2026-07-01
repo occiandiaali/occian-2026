@@ -1,7 +1,7 @@
 ---
 title: "We need more PWAs"
 date: 2026-06-29
-tags: [apps, developers, javascript]
+tags: [programming, developers, javascript]
 ---
 
 # Why are we so obsessed with the mobile stores

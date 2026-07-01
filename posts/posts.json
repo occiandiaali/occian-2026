@@ -21,6 +21,12 @@
     "file": "posts/we-need-more-pwas.md",
     "title": "We need more PWAs",
     "date": "2026-06-29",
-    "tags": ["apps", "developers", "javascript"]
+    "tags": ["programming", "developers", "javascript"]
+  },
+  {
+    "file": "posts/is-ruby-on-life-support.md",
+    "title": "Is Ruby on life support?",
+    "date": "2026-07-04",
+    "tags": ["programming", "developers"]
   }
 ]
