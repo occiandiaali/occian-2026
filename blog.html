@@ -89,6 +89,7 @@
     </nav>
     <main class="page-main">
       <div class="page-container" style="max-width: 800px; text-align: center">
+        <h1 class="page-title" style="margin-bottom: 1rem">My Writings.</h1>
         <div>
           <input
             type="text"
@@ -100,7 +101,6 @@
             <option value="">All Tags</option>
           </select>
         </div>
-        <h1 class="page-title" style="margin-bottom: 1rem">My Writings.</h1>
         <div id="posts-grid" class="posts-grid"></div>
         <!-- <iframe
           src="https://countdowntoevent.onrender.com/e/coming-soon--2002"
@@ -324,6 +324,8 @@
             link.textContent = `${p.title}`;
             link.style.color = "tomato";
             link.style.fontWeight = "600";
+            link.style.fontSize = "x-large";
+
             grid.appendChild(link);
             grid.appendChild(document.createElement("br"));
           });

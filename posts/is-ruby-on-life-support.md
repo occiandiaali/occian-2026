@@ -37,4 +37,4 @@ Stay tuned for updates and new projects.
 
 <!--_Back to [Blog List](../index.html)_-->
 
-<a href="../blog.html" class="back-link">Back to Posts</a>
+<!-- <a href="../blog.html" class="back-link">Back to Posts</a> -->
