@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
     <style>
       #post-content a {
-        color: rgb(133, 88, 5);
+        color: rgb(190, 124, 2);
+      }
+      #post-meta {
+        text-align: center;
       }
     </style>
   </head>
@@ -104,6 +107,8 @@
 
             // Step 4: Render metadata
             const metaContainer = document.getElementById("post-meta");
+            const h1El = document.createElement("h1");
+            h1El.textContent = meta.title;
             const dateEl = document.createElement("p");
             dateEl.textContent = `📅 ${meta.date}`;
 
@@ -120,6 +125,7 @@
                 tagsEl.appendChild(span);
               });
 
+            metaContainer.appendChild(h1El);
             metaContainer.appendChild(dateEl);
             metaContainer.appendChild(tagsEl);
 

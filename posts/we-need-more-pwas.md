@@ -4,7 +4,7 @@ date: 2026-06-29
 tags: [programming, developers, javascript]
 ---
 
-# Why are we so obsessed with the mobile stores
+## Why are we so obsessed with the mobile stores
 
 Every body wants to build a **Mobile App**.  
 At least, that's what I've heard since the 2010s.
