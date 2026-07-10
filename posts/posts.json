@@ -3,25 +3,31 @@
     "file": "posts/my-first-post.md",
     "title": "My First Blog Post",
     "date": "2026-06-27",
-    "tags": ["intro", "personal", "javascript"]
+    "tags": ["general"]
   },
   {
     "file": "posts/all-ai-go-to-heaven.md",
     "title": "All AI go to Heaven",
     "date": "2026-06-17",
-    "tags": ["AI", "satire", "humour"]
+    "tags": ["humour"]
   },
   {
     "file": "posts/how-to-succeed.md",
     "title": "How to succeed",
     "date": "2026-06-05",
-    "tags": ["showcase", "personal", "mentorship"]
+    "tags": ["general", "mentorship"]
   },
   {
     "file": "posts/we-need-more-pwas.md",
     "title": "We need more PWAs",
     "date": "2026-06-29",
-    "tags": ["programming", "developers", "javascript"]
+    "tags": ["programming", "developers"]
+  },
+  {
+    "file": "posts/the-beginning.md",
+    "title": "The Beginning",
+    "date": "2026-07-10",
+    "tags": ["mindset", "general"]
   },
   {
     "file": "posts/is-ruby-on-life-support.md",
