@@ -1,11 +1,5 @@
 [
   {
-    "file": "posts/my-first-post.md",
-    "title": "My First Blog Post",
-    "date": "2026-06-27",
-    "tags": ["general"]
-  },
-  {
     "file": "posts/all-ai-go-to-heaven.md",
     "title": "All AI go to Heaven",
     "date": "2026-06-17",
@@ -34,5 +28,11 @@
     "title": "Is Ruby on life support?",
     "date": "2026-07-04",
     "tags": ["programming", "developers"]
+  },
+  {
+    "file": "posts/the-more-things-change.md",
+    "title": "The More Things Change",
+    "date": "2026-07-15",
+    "tags": ["ai", "developers"]
   }
 ]
